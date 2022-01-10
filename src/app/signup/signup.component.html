@@ -1,0 +1,22 @@
+<br><br>
+<div class="card card-container">
+    <h2 class='login_title text-center'>Register</h2>
+	<form class="form-signin" [formGroup]="signupForm" (ngSubmit)="signUp()">
+		<p class="input_title">Name</p>
+		<input type="text" id="inputName" class="login_box" formControlName="name" required autofocus>
+
+		<span id="reauth-email" class="reauth-email"></span>
+		<p class="input_title">Email</p>
+		<input type="email" id="inputEmail" class="login_box" formControlName="email" required>
+
+		<p class="input_title">Password</p>
+		<input type="password" id="inputPassword" class="login_box" formControlName="password" required>
+
+		<button class="btn btn-lg btn-primary" type="submit">Register</button>
+		<div class="form-group mt-3">
+			<p>
+				Already have an account? <a routerLink="/login"> Login </a>
+			</p>
+			</div>
+	</form>
+</div>

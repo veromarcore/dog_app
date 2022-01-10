@@ -1,0 +1,22 @@
+<!--Title Menu and logout-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Favorite Dog App</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a routerLink="/login" >Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+  
+<!--Dog Breed List-->
+<div class="container">
+    <div class="list-group">
+        <a href="#" class="list-group-item active">
+            Dog Breeds
+        </a>
+        <a href="#" class="list-group-item" *ngFor="let key of Object.keys(breeds.message)" style="text-transform:uppercase;">{{key}}</a>
+    </div>
+</div>

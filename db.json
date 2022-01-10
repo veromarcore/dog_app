@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "signupUsers": [
+    {
+      "name": "asdsad",
+      "email": "asdsad",
+      "password": "adsadsa",
+      "id": 1
+    },
+    {
+      "name": "Vero",
+      "email": "veromarcore@gmail.com",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "Martin",
+      "email": "htgrinkor@gmail.com",
+      "password": "123",
+      "id": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
