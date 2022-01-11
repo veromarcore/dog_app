@@ -2,21 +2,21 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Favorite Dog App </a>
+            <a class="navbar-brand">Favorite Dog App </a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a routerLink="/home">Home Page</a></li>
+            <li><a (click)="goHome()">Home Page</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a routerLink="/login" >Logout</a></li>
         </ul>
     </div>
 </nav>
-<h2 class='breed_title text-center'>{{sub_breed_name}}</h2>
+<h2 class='breed_title text-center'>{{sub_breed_name}} SUB-BREEDS</h2>
   
-
+<!--thumnails with subbreeds (in case there isn't a subbreed shows the main breed picture)-->
 <div class="container">
-    <div class="alert alert-info col-sm-4" *ngFor="let key of sub_breed_obj; index as i" role="alert">
+    <div class="alert alert-info col-sm-4" *ngFor="let key of sub_breed_obj; index as i" role="alert" data-toggle="modal" data-target="#myModal" (click)="subBreedDetail(key,sub_breed_list[i])">
 
         <div class=" text-center">
             <img class="img-rounded" style="width: 100%; height: 250px; object-fit: cover;" src="{{key.thumnail}}">
@@ -28,4 +28,41 @@
     </div>
 </div>
 
+<!-- Modal to select a favorite -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button btn-block" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel" style="text-transform:uppercase;">Sub-breed: {{selected_sub_breed}}</h4>
+        </div>
+        <div class="modal-body" style="height: 350px; object-fit: cover;">
+            <div class="col-md-12 text-center form-group">
+                <button type="button" class="btn btn-default btn-lg" (click)="setFavorite()">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Set this as Favorite
+                </button>
+            </div>
+            <div class="col-md-12 form-group alert alert-success" *ngIf="selected_message" role="alert">
+                <span class="alert-link glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                <span class="alert-link"> {{selected_sub_breed}} marked as favorite!</span>
+            </div>
+            <div class="info col-sm-4" *ngFor="let key of selected_images| slice:0:3">
+                <div class=" text-center">
+                    <img class="img-rounded" style="width: 100%; height: 250px; object-fit: cover;" src="{{key}}">
+                </div>      
+            </div>            
+        </div>
+        <br>
+            <br>
+            <br>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+  
+  
 

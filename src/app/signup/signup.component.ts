@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   public signupForm!: FormGroup;
+  signup_error: any;
   constructor(private formBuilder : FormBuilder, private http : HttpClient, private router:Router) { }
 
   //initial object form
@@ -28,14 +29,16 @@ export class SignupComponent implements OnInit {
         return a.email ===this.signupForm.value.email //check if user already exist
       });
       if(user){
-        alert("User already exist");
+        this.signup_error=true;
       }
       else{
         //in case user doesn't exist then save the new user
+        this.signup_error=false;
         this.http.post<any>("http://localhost:3000/signupUsers", this.signupForm.value). 
         subscribe(
           res =>{
-            alert("Signup Succesfull");
+            alert("Signup Succesful");
+            
             this.signupForm.reset();
             this.router.navigate(['login']); //change rout to login page to test new user
         }, err=>{

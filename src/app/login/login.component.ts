@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public loginForm!: FormGroup;
+  user_data: any;
+  login_error: any;
   constructor(private formBuilder : FormBuilder, private http : HttpClient, private router: Router) { }
 
   //default init object form
@@ -26,15 +28,17 @@ export class LoginComponent implements OnInit {
     this.http.get<any>("http://localhost:3000/signupUsers") //json server location
     .subscribe(res=>{
       const user= res.find((a:any)=>{ //check user
+        this.user_data=a;
         return a.email ===this.loginForm.value.email && a.password ===this.loginForm.value.password 
       });
       if(user){
-        alert("Welcome");
+        this.login_error=false;
         this.loginForm.reset();
-        this.router.navigate(['home'])
+        this.router.navigate(['home'],{state: {data: this.user_data}})
       }
       else{
-        alert("user/password not found");
+        this.login_error=true;
+        //alert("user/password not found");
       }
     }, err=>{
       alert("Login Error");

@@ -15,5 +15,9 @@
                 Create an account? <a routerLink="/signup"> Register </a>
             </p>
         </div>
+        <div class="alert alert-danger" *ngIf="login_error" role="alert">
+            <span class="alert-link glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            <span class="alert-link"> Invalid Email or Password!</span>
+        </div>
     </form>
 </div>

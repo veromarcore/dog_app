@@ -1,22 +1,39 @@
 
-  <!--Title Menu and logout-->
+<!--Title Menu and logout-->
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Favorite Dog App</a>
+            <a class="navbar-brand" type="button" >Favorite Dog App</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li><a routerLink="/login" >Logout</a></li>
         </ul>
     </div>
 </nav>
-<!--<app-breed-detail [sub_breed_list]="breeds_list"></app-breed-detail>
-Dog Breed List {{myObj[key]}}  routerLink="/detail"-->
+
 <div class="container">
+    <!--in case user didn't selected a fav dog-->
+    <div class="alert alert-info" *ngIf="user_data.favorite_name=='' ||user_data.favorite_name==null " role="alert">
+        You don't have a favorite breed yet? Please select one.
+    </div>
+    <!--User's fav dog panel-->
+    <div style="height: 200px; " class="form-inline" *ngIf="user_data.favorite_name!='' && user_data.favorite_name!=null ">
+        <div class="alert alert-info col-sm-12" role="alert">
+
+            <div style="height: 100px; width: 150px; overflow: hidden; "  class="col-sm-6">
+                <img class="img-rounded col-2" style="width: 90%; height: auto;" src="{{user_data.favorite_image}}">
+            </div>
+            <div class="col-sm-8">
+                <h4 style="text-transform:uppercase;"><b>Welcome {{user_data.name}}! Here's your favorite dog: {{user_data.favorite_name}}</b></h4>
+            </div>
+            
+        </div>
+    </div>
+    <!--List of all dog breeds-->
     <div class="list-group">
-        <a class="list-group-item active">
-            Dog Breeds
+        <a class="list-group-item active breed_title">
+            Dog Breeds 
         </a>
-        <a (click)="subBreed(key)" class="list-group-item" *ngFor="let key of Object.keys(breeds.message)" style="text-transform:uppercase;">{{key}}</a>
+        <a (click)="subBreed(key)" type="button" class="list-group-item" *ngFor="let key of Object.keys(breeds.message)" style="text-transform:uppercase;">{{key}}</a>
     </div>
 </div>

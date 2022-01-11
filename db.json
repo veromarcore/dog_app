@@ -8,22 +8,20 @@
   ],
   "signupUsers": [
     {
-      "name": "asdsad",
-      "email": "asdsad",
-      "password": "adsadsa",
-      "id": 1
-    },
-    {
       "name": "Vero",
       "email": "veromarcore@gmail.com",
       "password": "123",
-      "id": 2
+      "id": 2,
+      "favorite_name": "bluetick",
+      "favorite_image": "https://images.dog.ceo/breeds/bluetick/n02088632_101.jpg"
     },
     {
       "name": "Martin",
       "email": "htgrinkor@gmail.com",
       "password": "123",
-      "id": 3
+      "id": 3,
+      "favorite_name": "chow",
+      "favorite_image": "https://images.dog.ceo/breeds/chow/modi2.jpg"
     }
   ],
   "profile": {

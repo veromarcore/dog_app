@@ -17,6 +17,10 @@
 			<p>
 				Already have an account? <a routerLink="/login"> Login </a>
 			</p>
-			</div>
+		</div>
+		<div class="alert alert-danger" *ngIf="signup_error" role="alert">
+            <span class="alert-link glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+            <span class="alert-link"> E-mail already registered!</span>
+        </div>
 	</form>
 </div>
