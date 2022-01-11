@@ -1,4 +1,5 @@
-<!--Title Menu and logout-->
+
+  <!--Title Menu and logout-->
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -9,14 +10,13 @@
         </ul>
     </div>
 </nav>
-
-  
-<!--Dog Breed List-->
+<!--<app-breed-detail [sub_breed_list]="breeds_list"></app-breed-detail>
+Dog Breed List {{myObj[key]}}  routerLink="/detail"-->
 <div class="container">
     <div class="list-group">
-        <a href="#" class="list-group-item active">
+        <a class="list-group-item active">
             Dog Breeds
         </a>
-        <a href="#" class="list-group-item" *ngFor="let key of Object.keys(breeds.message)" style="text-transform:uppercase;">{{key}}</a>
+        <a (click)="subBreed(key)" class="list-group-item" *ngFor="let key of Object.keys(breeds.message)" style="text-transform:uppercase;">{{key}}</a>
     </div>
 </div>
